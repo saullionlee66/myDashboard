@@ -15,7 +15,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import Button from "@material-ui/core/Button";
-//import AccountCircle from "@material-ui/icons/AccountCircle";
+import SettingsIcon from '@material-ui/icons/Settings';
 import Avatar from "@material-ui/core/Avatar";
 import MuiAppbar from "@material-ui/core/AppBar";
 import Grid from "@material-ui/core/Grid";
@@ -86,12 +86,6 @@ const options = {
   }
 };
 
-const selectionRange = {
-  startDate: new Date(),
-  endDate: new Date(),
-  key: "selection"
-};
-
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex"
@@ -103,14 +97,7 @@ const useStyles = makeStyles((theme) => ({
     }),
     backgroundColor: "white"
   },
-  // appBarShift: {
-  //   width: `calc(100% - ${drawerWidth}px)`,
-  //   marginLeft: drawerWidth,
-  //   transition: theme.transitions.create(["margin", "width"], {
-  //     easing: theme.transitions.easing.easeOut,
-  //     duration: theme.transitions.duration.enteringScreen
-  //   })
-  // },
+
   bottomRightBox: {
     justifyContent: "flex-end",
     alignItems: "flex-end"
@@ -142,7 +129,6 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(0, 2),
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
-    // flexDirection: "row-reverse",
   },
 
   logo: {
@@ -222,9 +208,7 @@ export default function Demo() {
     }
   ]);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+  
 
   return (
     <div className={classes.root}>
@@ -242,7 +226,6 @@ export default function Demo() {
               <IconButton
                 color="inherit"
                 aria-label="open drawer"
-                onClick={handleDrawerOpen}
                 edge="start"
                 className={clsx(classes.menuButton, open)}
               ></IconButton>
@@ -267,7 +250,6 @@ export default function Demo() {
       <Drawer
         className={classes.drawer}
         variant="persistent"
-        // anchor="left"
         open={true}
         classes={{ paper: classes.drawerPaper }}
         style={{ color: "white" }}
@@ -322,7 +304,7 @@ export default function Demo() {
 
         <List>
           <ListItem
-            bottom
+            button
             key="SETTING"
             style={{
               flex: 1,
@@ -331,7 +313,7 @@ export default function Demo() {
               paddingBottom: "5%"
             }}
           >
-            <ListItemIcon>{/* <GrDiamondIcon /> */}</ListItemIcon>
+            <ListItemIcon><SettingsIcon /></ListItemIcon>
 
             <ListItemText primary="SETTING" />
           </ListItem>
